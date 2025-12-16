@@ -1,0 +1,8 @@
+/backend
+/frontend
+/mongodb
+/server_old
+/backend_mongodb
+node_modules
+
+/backend_
