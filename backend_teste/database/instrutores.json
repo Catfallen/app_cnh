@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "email": "arthur@",
+    "nome": "Pedro queixada",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPQ0en3Jng4O4K59Gc3gX-lApGEqtNdSquYA&s",
+    "categorias": "a,b,c,d"
+  },
+  {
+    "id": 2,
+    "email": "markim@",
+    "nome": "Leo Jardim",
+    "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmL-aV5HCfQzueQoSwQ_CkMrJ5E5sacUK9lA&s",
+    "categorias": "a,b"
+  }
+]

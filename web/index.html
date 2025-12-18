@@ -1,54 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Lista de instrutores</h1>
-    <div id="instrutores">
-    </div>
-    <button onclick="inserirNaDiv()">inserir</button>
-    <script>
-        var lista = []
-        const instrutoresDiv = document.getElementById('instrutores');
-
-
-        async function getInstrutores(){
-            console.log("preto macacooooooooo")
-            const data = await fetch("http://localhost:3000/teste").then(response => {
-    // Check for an HTTP error (e.g., 404 Not Found)
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      text-align: center;
     }
-    // Return the result of the .json() promise to the next .then()
-    return response.json(); 
-  })
-  .then(data => {
-    // 'data' is the actual parsed JSON object
-    lista = data;
-    // You can now use the data to update your web page
-  })
-  .catch(error => {
-    // This catches network errors or errors thrown in the .then() blocks
-    console.error('There was a problem with the fetch operation:', error);
-  });
-        }
-        
-        async function inserirNaDiv(){
-            const result = await getInstrutores() //altera o valor da lista
-            console.log("iniciando for")
-            console.log(lista)
-            for(let el = 0;el < lista.length;el++){
-                console.log(lista[el])
-                const obj = lista[el];
-                instrutoresDiv.innerHTML += `Nome: ${obj.Nome}<br>${obj.Categorias}<hr>`
-            }
 
+    #instrutores img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Lista de instrutores</h1>
+  <div id="instrutores">
+  </div>
+  <button onclick="inserirNaDiv()">atualizar</button>
+  <script src="./scripts/api_url.js"></script>
+  <script>
+    var lista = []
+    const instrutoresDiv = document.getElementById('instrutores');
+
+
+    async function getInstrutores() {
+      console.log("preto macacooooooooo")
+      const data = await fetch(`${api_url}/instrutores/all`).then(response => {
+        // Check for an HTTP error (e.g., 404 Not Found)
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-    
-    
-    </script>
+        // Return the result of the .json() promise to the next .then()
+        return response.json();
+      })
+        .then(data => {
+          // 'data' is the actual parsed JSON object
+          lista = data;
+          // You can now use the data to update your web page
+        })
+        .catch(error => {
+          // This catches network errors or errors thrown in the .then() blocks
+          console.error('There was a problem with the fetch operation:', error);
+        });
+    }
+
+    async function inserirNaDiv() {
+      const result = await getInstrutores() //altera o valor da lista
+      console.log("iniciando for")
+      console.log(lista)
+      instrutoresDiv.innerHTML = ""
+      for (let el = 0; el < lista.length; el++) {
+        console.log(lista[el])
+        const obj = lista[el];
+        instrutoresDiv.innerHTML += `<img src = '${obj.img}'><br>${obj.nome}<br>${obj.categorias}<hr>`
+      }
+
+    }
+
+
+  </script>
 </body>
+
 </html>
