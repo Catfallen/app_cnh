@@ -3,14 +3,29 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+     "prisma:sqlite:migrate": "cross-env DATABASE_URL=file:./dev.db prisma migrate dev --schema=prisma/sqlite/schema.prisma",
+    "prisma:sqlite:generate": "cross-env DATABASE_URL=file:./dev.db prisma generate --schema=prisma/sqlite/schema.prisma",
+
+    "prisma:pg:migrate": "cross-env DATABASE_URL=postgresql://user:pass@localhost:5432/db prisma migrate dev --schema=prisma/postgres/schema.prisma",
+    "prisma:pg:generate": "cross-env DATABASE_URL=postgresql://user:pass@localhost:5432/db prisma generate --schema=prisma/postgres/schema.prisma"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.2.0",
+    "@prisma/adapter-pg": "^7.2.0",
+    "@prisma/client": "^6.19.1",
+    "better-sqlite3": "^12.5.0",
+    "cloudinary": "^2.8.0",
     "cors": "^2.8.5",
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^25.0.3",
+    "cross-env": "^10.1.0",
+    "prisma": "^6.19.1"
   }
 }

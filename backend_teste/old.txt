@@ -1,0 +1,7 @@
+"prisma:sqlite:generate": "prisma generate --schema=prisma/sqlite/schema.prisma",
+    "prisma:sqlite:migrate": "prisma migrate dev --schema=prisma/sqlite/schema.prisma",
+    "prisma:sqlite:reset": "prisma migrate reset --schema=prisma/sqlite/schema.prisma",
+    "prisma:sqlite:studio": "prisma studio --schema=prisma/sqlite/schema.prisma",
+    "prisma:pg:generate": "prisma generate --schema=prisma/postgres/schema.prisma",
+    "prisma:pg:deploy": "prisma migrate deploy --schema=prisma/postgres/schema.prisma",
+    "prisma:pg:studio": "prisma studio --schema=prisma/postgres/schema.prisma"
