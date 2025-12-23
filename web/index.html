@@ -31,7 +31,7 @@
 
 
     async function getInstrutores() {
-      console.log("preto macacooooooooo")
+      console.log("teste")
       const data = await fetch(`${api_url}/instrutores/all`).then(response => {
         // Check for an HTTP error (e.g., 404 Not Found)
         if (!response.ok) {
@@ -41,9 +41,8 @@
         return response.json();
       })
         .then(data => {
-          // 'data' is the actual parsed JSON object
           lista = data;
-          // You can now use the data to update your web page
+  
         })
         .catch(error => {
           // This catches network errors or errors thrown in the .then() blocks
