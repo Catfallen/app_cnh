@@ -12,6 +12,7 @@ model Usuario {
   id        Int      @id @default(autoincrement())
   nome      String
   email     String   @unique
-  ativo     Boolean  @default(true)
+  senha     String
   criadoEm  DateTime @default(now())
+  @@map("usuario")
 }
